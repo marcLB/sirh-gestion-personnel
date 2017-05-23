@@ -1,0 +1,49 @@
+package dev.sgp.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dev.sgp.entite.Collaborateur;
+import dev.sgp.service.CollaborateurService;
+import dev.sgp.util.Constantes;
+
+public class AjouterCollaborateurController extends HttpServlet {
+	public static final String VUE = "/WEB-INF/views/collab/ajouterCollaborateurs.jsp";
+	public static final String CHAMP_NOM = "nom";
+	public static final String CHAMP_PRENOM = "prenom";
+	public static final String CHAMP_DATE_DE_NAISSANCE= "dateDeNaissance";
+	public static final String CHAMP_ADRESSE = "adresse";
+	public static final String CHAMP_NUMERO_SECU = "numSecu";
+	
+	
+	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	    this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	}
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	    /* Récupération des champs du formulaire. */
+		String nom = request.getParameter( CHAMP_NOM );
+	    String prenom = request.getParameter( CHAMP_PRENOM );
+	    String dateDeNaissance = request.getParameter( CHAMP_DATE_DE_NAISSANCE );
+	  
+	    String adresse = request.getParameter( CHAMP_ADRESSE );
+	    String numSecu = request.getParameter( CHAMP_NUMERO_SECU );
+	
+	    try {
+	        Collaborateur newCollab = new Collaborateur(nom,prenom,dateDeNaissance,adresse,numSecu);
+	    } catch (Exception e) {
+	        /* Gérer les erreurs de validation ici. */
+	    }
+	    
+	}
+	
+	private void validationNom( String nom ) throws Exception {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package dev.sgp.web;
+
+import javax.servlet.http.HttpServlet;
+
+public class EditerCollaborateurController extends HttpServlet{
+	
+	@Override
+	protected void doGet() {
+		
+	}
+}

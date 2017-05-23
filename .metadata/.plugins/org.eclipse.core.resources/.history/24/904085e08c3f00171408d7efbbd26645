@@ -1,0 +1,33 @@
+
+<%@page import="java.util.List"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SGP - App</title>
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-3.3.7-
+dist/css/bootstrap.css">
+	</head>
+	<body>
+		<h1>Les collaborateurs</h1>
+		<ul class="list-group">
+			<% List<String> listeNoms = (List<String>)request.getAttribute("listeNoms");
+				
+				for (String nom : listeNoms) { 
+			%>
+			<li>
+				<!-- Button -->
+				<div class="list-group-item">
+				  <label>	<%= nom %></label>
+				  <div class="col-md-4">
+				    <button id="singlebutton" name="singlebutton" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Add</button>
+				  </div>
+				</div>
+			</li>	
+			
+			
+			<%}%>
+		</ul>
+	</body>
+</html>

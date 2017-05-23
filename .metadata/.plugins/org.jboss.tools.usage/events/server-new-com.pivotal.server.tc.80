@@ -1,9 +1,9 @@
-#Mon May 22 11:57:58 CEST 2017
+#Tue May 23 09:29:08 CEST 2017
 vl=0 \= failed, 1 \= successful
 l=Server Runtime ID
 ct=server
-d=1495447078853
-c=1
+d=1495524548523
+c=0
 cmp=server
 a=new
 cl=com.pivotal.server.tc.80

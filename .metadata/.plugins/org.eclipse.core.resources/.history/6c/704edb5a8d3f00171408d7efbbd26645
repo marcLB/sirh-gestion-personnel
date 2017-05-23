@@ -1,0 +1,40 @@
+package dev.sgp.web;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dev.sgp.service.CollaborateurService;
+
+public class AjouterCollaborateurController extends HttpServlet {
+	public static final String VUE = "/WEB-INF/views/collab/ajouterCollaborateurs.jsp";
+	public static final String CHAMP_NOM = "nom";
+	public static final String CHAMP_PRENOM = "prenom";
+	private CollaborateurService collabService = new Constante.COLLAB_SERVICE;
+	
+	
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	    this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	}
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	    /* Récupération des champs du formulaire. */
+		String nom = request.getParameter( CHAMP_NOM );
+	    String prenom = request.getParameter( CHAMP_PRENOM );
+	
+	    this.getServletContext().getRequestDispatcher( "/WEB-INF/views/collab/listerCollaborateurs.jsp" ).forward( request, response );
+	    try {
+	        validationNom( nom );
+	    } catch (Exception e) {
+	        /* Gérer les erreurs de validation ici. */
+	    }
+	    
+	}
+	
+	private void validationNom( String nom ) throws Exception {
+		
+	}
+}

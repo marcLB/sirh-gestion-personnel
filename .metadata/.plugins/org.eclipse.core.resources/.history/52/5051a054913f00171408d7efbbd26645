@@ -1,0 +1,73 @@
+package dev.sgp.web;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dev.sgp.entite.Collaborateur;
+import dev.sgp.service.CollaborateurService;
+import dev.sgp.util.Constantes;
+
+public class AjouterCollaborateurController extends HttpServlet {
+	public static final String VUE = "/WEB-INF/views/collab/ajouterCollaborateurs.jsp";
+	public static final String CHAMP_NOM = "nom";
+	public static final String CHAMP_PRENOM = "prenom";
+	public static final String CHAMP_DATE_DE_NAISSANCE= "dateDeNaissance";
+	public static final String CHAMP_ADRESSE = "adresse";
+	public static final String CHAMP_NUMERO_SECU = "numSecu";
+	
+	
+	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	
+	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+	    this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	}
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse resp ) throws ServletException, IOException{
+	    /* Récupération des champs du formulaire. */
+		String nom = request.getParameter( CHAMP_NOM );
+	    String prenom = request.getParameter( CHAMP_PRENOM );
+	    String dateDeNaissance = request.getParameter( CHAMP_DATE_DE_NAISSANCE );
+	    String adresse = request.getParameter( CHAMP_ADRESSE );
+	    String numSecu = request.getParameter( CHAMP_NUMERO_SECU );
+	
+	    
+	    resp.setCharacterEncoding("utf-8");
+		
+		if (validationParams.get(false) != null) {
+			
+			resp.setStatus(400);
+			resp.getWriter().write("Les paramètres suivants sont incorrects : " + validationParams.get(false).stream().collect(joining(",")));
+			
+		}
+		else if(numSecuriteSociale.length() != 15) {
+			resp.setStatus(400);
+			resp.getWriter().write("Numéro de sécurité sociale incorrecte");
+		}
+		else {
+			
+			resp.setStatus(201);
+			resp.getWriter().write("Création d'un collaborateur avec les informations suivantes : "
+			+ validationParams.get(true).stream().map(p -> p + "=" + req.getParameter(p)).collect(joining(",")));
+			
+		Collaborateur collab = new Collaborateur(matricule, nom, prenom, LocalDate.parse(dateNaissance), adresse, numSecuriteSociale, email, photo);
+			this.collabService.sauvegarderCollaborateur(collab);
+			
+			resp.sendRedirect(req.getContextPath() + "/collaborateurs/lister");
+		}
+	}
+	
+	private Map<Boolean, List<String>> validerParametres(HttpServletRequest req, String... params) {
+				return Stream.of(params).collect(
+						groupingBy(
+								param -> req.getParameter(param) != null && !"".equals(req.getParameter(param)
+						)));
+		 	}
+	
+}
