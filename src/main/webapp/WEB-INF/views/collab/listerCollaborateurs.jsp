@@ -2,28 +2,21 @@
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ include file="../header.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/css/bootstrap.css">
+<title>SGP - App</title>
+</head>
 
 <body>
 	<h1>Les collaborateurs</h1>
-	<a href="<c:url value='/collaborateurs/nouveau'></c:url>" class="btn btn-primary">Nouveau</a>
 	
 	<ul>
-		<c:forEach var="collab" items="${listeNomsService}">
-			<li>${collab.nom} ${collab.prenom} </li>
+		<c:forEach var="collab" items="${collaborateurs}">
+			<li>${collab.matricule} - ${collab.nom} ${collab.prenom}</li>
 		</c:forEach>
 	</ul>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-<%@ include file="../footer.jsp" %>
+</html>
