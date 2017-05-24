@@ -17,7 +17,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="nomInput">Nom</label>  
 		  <div class="col-md-4">
-		  <input id="nomInput" name="nomInput" type="text" placeholder="nom" class="form-control input-md" required="">
+		  <input id="nomInput" name="nomInput" type="text" placeholder="nom" class="form-control input-md" required="" value="LE BOULCH">
 		    
 		  </div>
 		</div>
@@ -26,7 +26,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="prenomInput">Prénom</label>  
 		  <div class="col-md-4">
-		  <input id="prenomInput" name="prenomInput" type="text" placeholder="prénom" class="form-control input-md" required="">
+		  <input id="prenomInput" name="prenomInput" type="text" placeholder="prénom" class="form-control input-md" required="" value="Marc">
 		    
 		  </div>
 		</div>
@@ -35,7 +35,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="dateNaissanceInput">Date de naissance</label>  
 		  <div class="col-md-4">
-		  <input id="dateNaissanceInput" name="dateNaissanceInput" type="date"class="form-control input-md" required="">
+		  <input id="dateNaissanceInput" name="dateNaissanceInput" type="date"class="form-control input-md" required="" >
 		    
 		  </div>
 		</div>
@@ -44,7 +44,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="adresseInput">Adresse</label>  
 		  <div class="col-md-4">
-		  <input id="adresseInput" name="adresseInput" type="text" placeholder="adresse" class="form-control input-md" required="">
+		  <input id="adresseInput" name="adresseInput" type="text" placeholder="adresse" class="form-control input-md" required="" value="8 restellou 22160 CALLAC">
 		    
 		  </div>
 		</div>
@@ -53,7 +53,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="secuInput">Numéro de sécurité sociale</label>  
 		  <div class="col-md-4">
-		  <input id="secuInput" name="secuInput" type="text" placeholder="numéro de sécurité sociale" class="form-control input-md" required="">
+		  <input id="secuInput" name="secuInput" type="text" placeholder="numéro de sécurité sociale" class="form-control input-md" required="" value="123456789123456">
 		    
 		  </div>
 		</div>

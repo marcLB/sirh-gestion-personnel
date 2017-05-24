@@ -43,7 +43,7 @@ public class CreerCollaborateurController extends HttpServlet {
 		String numSecuriteSociale = req.getParameter("secuInput");
 		
 		String matricule = UUID.randomUUID().toString();
-		String email = nom + "." + prenom + "@" + "scociété" + ".com";
+		String email = nom + "." + prenom + "@" + "société" + ".com";
 		String photo = "path" + "photo.png";
 		
 		
@@ -69,6 +69,7 @@ public class CreerCollaborateurController extends HttpServlet {
 			collabService.sauvegarderCollaborateur(collab);
 			
 			resp.sendRedirect(req.getContextPath() + "/collaborateurs/lister");
+			
 		}
 		
 	}
