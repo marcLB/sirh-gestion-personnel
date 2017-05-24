@@ -1,5 +1,7 @@
 package dev.sgp.entite;
 
+import java.time.DayOfWeek;
+import java.time.Month;
 import java.time.ZonedDateTime;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -22,7 +24,11 @@ public class CollabEvt {
 
 //GETTERS AND SETTERS
 	public String getDateHeure() {
-		return dateHeure.toString();
+		String jour = dateHeure.getDayOfWeek().toString(); 
+		String mois = dateHeure.getMonth().toString(); 
+		int annee = dateHeure.getYear(); 
+		
+		return jour+" "+mois+" "+annee;
 	}
 	public void setDateHeure(ZonedDateTime dateHeure) {
 		this.dateHeure = dateHeure;
@@ -33,7 +39,6 @@ public class CollabEvt {
 	public String getTypeString() {
 		return type.toString();
 	}
-	
 	
 	public void setType(TypeCollabEvt type) {
 		this.type = type;
