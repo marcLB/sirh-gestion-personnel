@@ -8,7 +8,6 @@ import javax.enterprise.context.ApplicationScoped;
 
 import dev.sgp.entite.Collaborateur;
 
-
 @ApplicationScoped
 public class CollaborateurService {
 	

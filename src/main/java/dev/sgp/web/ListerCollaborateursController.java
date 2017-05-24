@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
-import dev.sgp.util.Constantes;
 
 @WebServlet("/collaborateurs/lister")
 public class ListerCollaborateursController extends HttpServlet {

@@ -2,6 +2,7 @@ package dev.sgp.filtre;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -12,11 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import dev.sgp.entite.VisiteWeb;
 import dev.sgp.service.VisiteWebService;
-import dev.sgp.util.Constantes;
 
 public class FrequentationFilter implements Filter {
 	
-	private VisiteWebService visiteService = Constantes.VISITE_SERVICE;
+	@Inject private VisiteWebService visiteService;
 	
 
 	@Override
