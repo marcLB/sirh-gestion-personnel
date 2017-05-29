@@ -1,11 +1,9 @@
 package dev.sgp.service;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -35,4 +33,5 @@ public class CollaborateurService {
 		CollabEvt nouveauCollabEvt = new CollabEvt(collab.getDateHeureCreation(),TypeCollabEvt.CREATION_COLLAB,collab.getMatricule());
 		collabEvt.fire(nouveauCollabEvt);
 	}
+
 }
