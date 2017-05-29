@@ -7,8 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="Departement")
 public class Departement {
-
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
@@ -19,13 +17,14 @@ public class Departement {
 	
 	public Departement() {}
 	
-	
 	public Departement(String nom) {
 		super();
 		this.nom = nom;
 	}
+	
 
-
+	
+//GETTERS AND SETTERS
 	public int getId() {
 		return id;
 	}

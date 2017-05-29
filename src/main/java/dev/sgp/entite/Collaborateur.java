@@ -14,8 +14,6 @@ public class Collaborateur {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private int id;
-    
-    
 	@Column(name="matricule")
 	private String matricule;
 	@Column(name="nom")
@@ -41,9 +39,12 @@ public class Collaborateur {
 	@ManyToOne
 	private Departement departement;
 	
+//	@ManyToOne
+//	private CoordonneesBancaire coordonneesBancaire;
 	
 	
 
+	
 	public Collaborateur() {}
 	
 	public Collaborateur(String matricule, String nom, String prenom, LocalDate dateDeNaissance, String adresse,
@@ -75,6 +76,7 @@ public class Collaborateur {
 		this.dateHeureCreation = dateHeureCreation;
 		this.actif = actif;
 		this.departement= departement;
+	//	this.coordonneesBancaire=coordonneesBancaire;
 	}
 	
 	
@@ -83,6 +85,22 @@ public class Collaborateur {
 	
 	
 //GETTERS AND SETTERS
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+//	public CoordonneesBancaire getCoordonneesBancaire() {
+//		return coordonneesBancaire;
+//	}
+//
+//	public void setCoordonneesBancaire(CoordonneesBancaire coordonneesBancaire) {
+//		this.coordonneesBancaire = coordonneesBancaire;
+//	}
+
 	public Departement getDepartement() {
 		return departement;
 	}

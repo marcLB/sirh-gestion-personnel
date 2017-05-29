@@ -16,13 +16,12 @@ import dev.sgp.service.CollaborateurService;
 
 @Path("/collaborateurs")
 public class CollaborateurResource {
-
 @Inject private CollaborateurService collabService;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Collaborateur> get(@QueryParam("departement") int id_departement) {
-		if(id_departement>-1){
+	public List<Collaborateur> get(@DefaultValue("-1") @QueryParam("departement") int id_departement) {
+		if(id_departement>=0){
 			return getCollabWhithIdDep(id_departement);
 		} else { 
 			return list();
@@ -36,7 +35,6 @@ public class CollaborateurResource {
 	public List<Collaborateur> getCollabWhithIdDep(@DefaultValue("1") @PathParam("id_departement") Integer id_departement){
 		return collabService.getCollabWhithIdDep(id_departement);
 	}
-	
 	
 	@Path("/{matricule}")
 	@Produces(MediaType.APPLICATION_JSON)

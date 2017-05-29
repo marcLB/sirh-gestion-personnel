@@ -8,8 +8,10 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.CoordonneesBancaire;
 import dev.sgp.entite.Departement;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.CoordonneesBancaireService;
 import dev.sgp.service.DepartementService;
 
 @WebListener
@@ -19,15 +21,21 @@ public class startListen implements ServletContextListener {
 	private CollaborateurService collabService; 
 	@Inject
 	private DepartementService depService; 
+	@Inject 
+	private CoordonneesBancaireService coordBanqueService; 
+	
 	
 	
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		ZonedDateTime dateHeureCreation = ZonedDateTime.now();
 		
+		CoordonneesBancaire coordBanque=new CoordonneesBancaire("credit agricole", "azertyui", "dfghjk");
+		
 		Departement ca = new Departement("Comptabilitée");
 		Departement kb = new Departement("Kreizh Breizh");
 	
+		
 		
 		Stream.of(
 				ca,
