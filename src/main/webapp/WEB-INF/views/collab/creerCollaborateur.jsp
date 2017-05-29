@@ -3,7 +3,7 @@
 
 <%@ include file="../header.jsp" %>
 
-<h1 style="text-align:center; margin: 20px 0 30px 0">Nouveau collaborateur</h1>
+<h1 style="text-align:center; margin: 60px 0 30px 0">Nouveau collaborateur</h1>
 
 	<form class="form-horizontal" method="post">
 		<fieldset>
