@@ -1,7 +1,5 @@
 package dev.sgp.entite;
 
-import java.time.DayOfWeek;
-import java.time.Month;
 import java.time.ZonedDateTime;
 
 import javax.enterprise.context.ApplicationScoped;

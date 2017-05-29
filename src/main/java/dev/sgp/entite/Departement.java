@@ -1,9 +1,8 @@
 package dev.sgp.entite;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="Departement")
@@ -11,19 +10,18 @@ public class Departement {
 
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
 	private int id;
 	@Column(name="nom")
 	private String nom;
 	
 	
-	public Departement() {
-	}
+	public Departement() {}
 	
 	
-	public Departement(int id, String nom) {
+	public Departement(String nom) {
 		super();
-		this.id = id;
 		this.nom = nom;
 	}
 

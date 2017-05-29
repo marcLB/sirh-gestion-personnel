@@ -1,7 +1,6 @@
 package dev.sgp.entite;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 import javax.persistence.*;
@@ -12,6 +11,11 @@ import javax.persistence.*;
 public class Collaborateur {
 		
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id")
+    private int id;
+    
+    
 	@Column(name="matricule")
 	private String matricule;
 	@Column(name="nom")
@@ -34,7 +38,12 @@ public class Collaborateur {
 	private Boolean actif;
 	
 	
+	@ManyToOne
+	private Departement departement;
 	
+	
+	
+
 	public Collaborateur() {}
 	
 	public Collaborateur(String matricule, String nom, String prenom, LocalDate dateDeNaissance, String adresse,
@@ -53,7 +62,7 @@ public class Collaborateur {
 	
 	public Collaborateur(String matricule, String nom, String prenom, LocalDate dateDeNaissance,
 			String adresse, String numSecu, String email, String photo, ZonedDateTime dateHeureCreation,
-			Boolean actif) {
+			Boolean actif, Departement departement) {
 		super();
 		this.matricule = matricule;
 		this.nom = nom;
@@ -65,6 +74,7 @@ public class Collaborateur {
 		this.photo = photo;
 		this.dateHeureCreation = dateHeureCreation;
 		this.actif = actif;
+		this.departement= departement;
 	}
 	
 	
@@ -73,6 +83,12 @@ public class Collaborateur {
 	
 	
 //GETTERS AND SETTERS
+	public Departement getDepartement() {
+		return departement;
+	}
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
 	public String getMatricule() {
 		return matricule;
 	}

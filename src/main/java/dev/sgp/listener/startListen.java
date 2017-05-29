@@ -24,21 +24,25 @@ public class startListen implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		ZonedDateTime dateHeureCreation = ZonedDateTime.now();
-
+		
+		Departement ca = new Departement("Comptabilitée");
+		Departement kb = new Departement("Kreizh Breizh");
+	
+		
 		Stream.of(
-				new Collaborateur("1", "Marc", "LB", LocalDate.parse("1520-05-25"), "12", "521452121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true),
-				new Collaborateur("2", "est", "rr", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true),
-				new Collaborateur("3", "pmp", "cdr", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true),
-				new Collaborateur("4", "sar", "vif", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true),
-				new Collaborateur("5", "pop", "youpi", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true)
+				ca,
+				kb
+				)
+		.forEach(dep -> depService.sauvegarderDepartement(dep));
+		Stream.of(
+				new Collaborateur("1", "Marc", "LB", LocalDate.parse("1520-05-25"), "12", "521452121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true,ca),
+				new Collaborateur("2", "est", "rr", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true,kb),
+				new Collaborateur("3", "pom", "dapi", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true,kb),
+				new Collaborateur("4", "sar", "vif", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true,ca),
+				new Collaborateur("5", "pop", "youpi", LocalDate.parse("1993-06-25"), "14", "121212121212121", "ee.ss@societe.com","img.png" ,dateHeureCreation , true,ca)
 				)
 		.forEach(collab -> collabService.sauvegarderCollaborateur(collab));
 		
-		Stream.of(
-				new Departement(22,"Côtes d'Armor"),
-				new Departement(29,"Finistère")
-				)
-		.forEach(dep -> depService.sauvegarderDepartement(dep));
 
 		
 

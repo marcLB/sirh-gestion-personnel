@@ -3,7 +3,6 @@ package dev.sgp.web;
 import java.io.IOException;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -40,4 +40,10 @@ public class CollaborateurService {
 		return collab;
 	}
 
+	public List<Collaborateur> getCollabWhithIdDep(Integer id_departement) {		
+		TypedQuery<Collaborateur> query = em.createQuery( "Select c " + "from Collaborateur c " + "Where c.departement.id="+id_departement,Collaborateur.class );
+		List<Collaborateur> collab = query.getResultList();
+		return collab;
+	}
+
 }
