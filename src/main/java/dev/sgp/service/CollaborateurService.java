@@ -34,4 +34,10 @@ public class CollaborateurService {
 		collabEvt.fire(nouveauCollabEvt);
 	}
 
+	public Collaborateur getCollabById(int matricule) {
+		TypedQuery<Collaborateur> query = em.createQuery( "Select c " + "from Collaborateur c " + "Where c.matricule="+matricule,Collaborateur.class );
+		Collaborateur collab = query.getSingleResult();
+		return collab;
+	}
+
 }
